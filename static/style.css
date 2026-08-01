@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#2563eb);
+    min-height:100vh;
+    padding:40px;
+}
+
+.container{
+    width:90%;
+    max-width:950px;
+    margin:auto;
+    background:#fff;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    color:#2563eb;
+    margin-bottom:10px;
+    font-size:34px;
+}
+
+.header p{
+    color:#666;
+    font-size:17px;
+}
+
+label{
+    display:block;
+    margin-top:20px;
+    margin-bottom:8px;
+    font-weight:bold;
+    color:#222;
+}
+
+input[type=file]{
+    width:100%;
+    padding:14px;
+    border:2px dashed #2563eb;
+    border-radius:10px;
+    background:#f7f9ff;
+    cursor:pointer;
+}
+
+textarea{
+    width:100%;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    resize:vertical;
+    font-size:15px;
+    min-height:220px;
+}
+
+textarea:focus,
+input:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+button:disabled{
+    background:gray;
+    cursor:not-allowed;
+}
+
+.error{
+    background:#ffe5e5;
+    color:#c00000;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.result{
+    margin-top:35px;
+    background:#f8fbff;
+    border-left:6px solid #2563eb;
+    padding:25px;
+    border-radius:10px;
+}
+
+.result h2{
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.output{
+    line-height:1.8;
+    color:#333;
+    font-size:16px;
+}
+
+.loading{
+    display:none;
+    text-align:center;
+    margin-top:30px;
+}
+
+.loader{
+    width:55px;
+    height:55px;
+    border:6px solid #ddd;
+    border-top:6px solid #2563eb;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+pre{
+    white-space:pre-wrap;
+}
+
+@media(max-width:768px){
+
+.container{
+    width:95%;
+    padding:20px;
+}
+
+.header h1{
+    font-size:28px;
+}
+
+button{
+    font-size:16px;
+}
+
+}

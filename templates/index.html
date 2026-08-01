@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Screening System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🤖 AI Resume Screening System</h1>
+        <p>
+            Upload your resume, paste the Job Description,
+            and let AI analyze your ATS match score.
+        </p>
+    </div>
+
+    {% if error %}
+    <div class="error">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data" id="resumeForm">
+
+        <label>📄 Upload Resume (PDF)</label>
+
+        <input
+            type="file"
+            name="resume"
+            accept=".pdf"
+            required
+        >
+
+        <label>💼 Job Description</label>
+
+        <textarea
+            name="job_description"
+            rows="12"
+            placeholder="Paste the complete Job Description here..."
+            required
+        ></textarea>
+
+        <button type="submit" id="submitBtn">
+            🚀 Analyze Resume
+        </button>
+
+    </form>
+
+    <div id="loading" class="loading">
+        <div class="loader"></div>
+        <p>Analyzing Resume... Please wait.</p>
+    </div>
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>📊 ATS Analysis Report</h2>
+
+        <div class="output">
+            {{ result | replace('\n', '<br>') | safe }}
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script>
+
+const form = document.getElementById("resumeForm");
+
+form.addEventListener("submit", function(){
+
+    document.getElementById("loading").style.display="block";
+
+    document.getElementById("submitBtn").disabled=true;
+
+    document.getElementById("submitBtn").innerHTML="Analyzing...";
+
+});
+
+</script>
+
+</body>
+</html>
